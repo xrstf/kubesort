@@ -38,6 +38,11 @@ func patch(dest any, key any, exists bool, path Path, patchValue PatchFunc) (any
 		return nil, err
 	}
 
+	// TODO: Adjust unit tests to this hack.
+	if errors.Is(err, errNoSuchKey) || errors.Is(err, errIndexOutOfBounds) || errors.Is(err, errPointerIsNil) {
+		return dest, nil
+	}
+
 	switch thisStep.(type) {
 	// $var[1], $var.foo, $var["foo"], $var[(+ 1 2)]
 	case SingleStep:
