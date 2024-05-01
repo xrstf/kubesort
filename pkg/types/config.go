@@ -14,6 +14,12 @@ type Configuration struct {
 }
 
 func (c *Configuration) Validate() error {
+	for _, rule := range c.ObjectRules {
+		if err := rule.Validate(); err != nil {
+			return err
+		}
+	}
+
 	return nil
 }
 
