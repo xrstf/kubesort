@@ -1,4 +1,11 @@
-# kubesort – Sort Kubernetes YAML files
+# Migration note
+
+> [!IMPORTANT]
+> `kubesort` has been migrated to [codeberg.org/xrstf/kubesort](https://codeberg.org/xrstf/kubesort).
+
+---
+
+## kubesort – Sort Kubernetes YAML files
 
 kubesort is a command-line application that can sort a list of Kubernetes manifests (expressed as
 YAML files) in a consistent way. The main usecase is for diffing the output of for example rendered
@@ -8,7 +15,7 @@ kubesort will sort manifests by GVK, namespace and name, plus has a number of ru
 inside of manifests (for example, the environment variables in a PodSpec are sorted by name, so
 are containers and volumes).
 
-## Installation
+### Installation
 
 Either [download the latest release](https://github.com/xrstf/kubesort/releases) or build for
 yourself using Go 1.22+:
@@ -17,7 +24,7 @@ yourself using Go 1.22+:
 go install go.xrstf.de/kubesort
 ```
 
-## Usage
+### Usage
 
 Couldn't really be any simpler:
 
@@ -38,6 +45,6 @@ This will combine all the manifests into one, then sort it and return the combin
 
 Alternatively, pipe YAML into kubesort on stdin.
 
-## License
+### License
 
 MIT
